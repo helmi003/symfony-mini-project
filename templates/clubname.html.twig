@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<meta charset="utf-8">
+<title>
+{% block title %}
+{{clubs.clubname}}
+{% endblock %}
+</title>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css ">
+</head>
+<body>
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="../index">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="../clubs">clubs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../membership">Member Ship</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../about">About</a>
+      </li>
+      <li class="nav-item">
+        {% if app.user %}
+          <a class="nav-link" href="../account/{{ app.user.id }}">Acount</a>
+        {% else %}
+          <a class="nav-link" href="../login">Acount</a>
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+</nav>
+<form method="post" action="{{clubs.id}}">
+<div>
+    <div class="div2">
+        <div class="container">
+            <img class="image" src="{{clubs.logo}}" style="height:300px;width:300px;">
+            <div class="middle">
+            
+            </div>
+        </div>
+        <div>
+            <h3>____Informations____</h3>
+            <p>
+                <i style='font-size:24px' class='fas'>&#xf879;</i> Tel : (+216) {{clubs.clubnumber}}<br /><br />
+                <i style="font-size:24px" class="fa">&#xf2b9;</i> Mail : {{clubs.clubmail}}
+            </p>
+            <p><i style='font-size:24px' class='fas'>&#xf2bb;</i> Address:
+                {{clubs.clubadresse}}
+            </p>
+        </div>
+    </div>
+    <h1>{{clubs.clubname}}</h1>
+</div>
+<div class="div2">
+    {{clubs.description}}
+</div>
+        </form>
+{% if app.user %}
+  <h2>If you wanna join the club press the button : <a class="btn btn-primary" href="{{path('join', {'id':clubs.id})}}">Join</a>
+{% else %}
+  <h2>If you wanna join the club press the button : <a class="btn btn-primary" href="../login">Join</a>
+{% endif %}
+{% endblock %}
+</body>
+</html>

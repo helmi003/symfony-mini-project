@@ -1,0 +1,11 @@
+{% block body %}
+<body>
+<h1>Gestion des Seances</h1>
+<h2>Détail de la seance | #{{seance.id}}<h2>
+<p>Id Moniteur : {{seance.idm}}</p>
+<p>Id Adheren : {{seance.ida}}</p>
+<p>Date : {{seance.date | date('d/m/Y')}}</p>
+<p>Heure : {{seance.heure}}</p>
+<p>Nombre d'heures : {{seance.nbheure}}</p>
+</body>
+{% endblock %}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<meta charset="utf-8">
+<title>
+{% block title %}
+index
+{% endblock %}
+</title>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css ">
+</head>
+<body>
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="clubs">clubs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="membership">Member Ship</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="about">About</a>
+      </li>
+      <li class="nav-item">
+        {% if app.user %}
+          <a class="nav-link" href="account/{{ app.user.id }}">Acount</a>
+        {% else %}
+          <a class="nav-link" href="login">Acount</a>
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+</nav>
+<p ><span>who invented the windsurfer?</span>
+    <ul class="ul">
+        <li><a class="a" href="https://en.wikipedia.org/wiki/Newman_Darby">Newman Darby</a></li>
+        <li><a class="a" href="https://en.wikipedia.org/wiki/Peter_Chilvers">Peter Chilvers</a></li>
+        <li><a class="a" href="https://en.wikipedia.org/wiki/Jim_Drake_(engineer)">Jim Drake</a></li>
+      </ul>
+</p>
+<p ><span>What are windsurfers made of?</span>
+    <br>
+
+    The boards can be made of Epoxy, Fibreglass, Expanded Polystyrene Foam, PVC or Carbon Sandwich in a way so that the top of it is hard and the bottom is slippery. There are one or more fins at the bottom of the board. There is also centerboard much like daggerboard in the middle of the surfboard.
+</p>
+<br>
+<p ><span>How many windsurfers are there in the world?</span>
+    <br>
+
+    Currently, there are more than 1.2 million windsurfers in the United States--and millions more around the world--but the market has shrunk since the 1980s even as the sport has become more commonplace.
+</p>
+<br>
+<p ><span>How fast do windsurfers go?</span>
+    <br>
+
+    Windsurfer Breaks Speed Record at Over 60 mph. Antoine Albeau is the fastest windsurfer in the world after posting a run at 53.27 knots in Namibia. Top speed is a benchmark that's sought across countless sports, but it's not something you often hear about when it comes to windsurfing.
+</p>
+<br>
+<p ><span>Is Windsurfing still popular?</span>
+    <br>
+
+    Nowadays, windsurfing is thriving at a few places around the world: San Francisco, the Gorge, Tarifa in Spain, the Canary Islands. But in the US, there are virtually no sailing hotspots in the countless beach towns where the sport once thrived.
+</p>
+<br>
+<p ><span>How much do windsurfers cost?</span>
+    <br>
+
+    A complete windsurfing package that includes board, sail, mast, boom, mast extension, universal joint, uphaul rope, harness, and wetsuit runs approximately $2000-$2500 for all new equipment. We also offer used a closeout gear that is less expensive.
+</p>
+<br>
+<p ><span>Is windsurfing dangerous?</span>
+    <br>
+
+    Windsurfing is a potentially dangerous sport. In fact it is considered an extreme sport for a reason. That reason is mainly the fact that it is carried out in an environment we cannot control, namely the sea, lake, etc. Other sports offer security in terms of reduced risk of injury or equipment failure.
+</p>
+{% endblock %}
+</div>
+</body>
+</html>

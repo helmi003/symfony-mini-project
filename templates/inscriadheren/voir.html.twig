@@ -1,0 +1,9 @@
+{% block body %}
+<body>
+<h1>Gestion des inscription</h1>
+<h2>Détail de l'abonné | #{{adheren.id}}<h2>
+<p>Prénom & Nom : {{adheren.prenom | upper}} {{adheren.nom}}</p>
+<p>E-mail : {{adheren.email }}</p>
+
+</body>
+{% endblock %}

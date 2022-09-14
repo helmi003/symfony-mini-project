@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<meta charset="utf-8">
+<title>
+{% block title %}
+TP Symfony #2 : Doctrine &Forms
+{% endblock %}
+</title>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css ">
+</head>
+<body>
+<div class="container">
+<div class="text-center">
+<h1>Page Admin</h1>
+<div class="text-center">
+{% block body %}
+<br>
+<br>
+<br>
+
+
+<div class="text-center">
+<a class="btn btn-warning" href="inscriadheren" style ="font-size:25px; font-weight:bold;">Adheren</a>
+<a class="btn btn-warning" href="inscrimoniteur" style ="font-size:25px; font-weight:bold;">Moniteur</a>
+<a class="btn btn-warning" href="inscriseance" style ="font-size:25px; font-weight:bold;">Seance</a>
+</div>
+
+{% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<meta charset="utf-8">
+<title>
+{% block title %}
+index
+{% endblock %}
+</title>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css ">
+</head>
+<body>
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="index">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="clubs">clubs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="membership">Member Ship</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about">About</a>
+      </li>
+      <li class="nav-item">
+        {% if app.user %}
+          <a class="nav-link" href="account/{{ app.user.id }}">Acount</a>
+        {% else %}
+          <a class="nav-link" href="login">Acount</a>
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+</nav>
+<p class="text-justify" style="width:1000px; padding:30px;">
+La planche à voile (parfois désignée par son nom anglais, windsurf) est un type d'embarcation à voile minimaliste, c'est aussi le sport de glisse pratiqué avec cette embarcation.
+Elle est constituée d'une simple planche ou flotteur, et d'un gréement articulé à la planche par la base du mât. La planche à voile se caractérise par la position debout de son 
+pratiquant nommé « véliplanchiste » et par l'absence de gouvernail et d'écoutes. C'est le véliplanchiste qui soulève puis maintient le mât et la voile en position active, 
+s'orientant sur l'eau en inclinant d'avant en arrière le gréement, ou en changeant ses appuis sur la planche.
+</p>
+{% endblock %}
+</div>
+</body>
+</html>

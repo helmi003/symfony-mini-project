@@ -1,0 +1,55 @@
+{% extends 'inscri-layout.html.twig' %}
+{% block body %}
+<h1>Gestion des clubs de planche à voile : Admin</h1>
+<h2>Liste des Seance | <small><a href="inscriseance/ajouter">Ajouter</a></small></h2>
+{% for msg in app.flashes('notice') %}
+<div class="alert alert-success">
+{{msg}}
+</div>
+{% endfor %}
+{{form_start(f)}}
+{{form_widget(f)}}
+{{form_end(f)}}
+<table class="table table-hover table-striped" border="1">
+<thead>
+<tr>
+<th>#</th>
+<th>Id Moniteur</th>
+<th>Id adheren</th>
+<th>Date</th>
+<th>Heure</th>
+<th>NbHeures</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+{% for seance in lesSeances %}
+<tr>
+<td>{{seance.id}}</td>
+<td>{{seance.idm}}</td>
+<td>{{seance.ida}}</td>
+<td>{{seance.date | date('d/m/Y')}}</td>
+<td>{{seance.heure}}</td>
+<td>{{seance.nbheure}}</td>
+<td>
+<a class="btn btn-primary" href="{{path('inscriseance_voir', {'id':seance.id})}}">Voir</a>
+<a class="btn btn-info" href="{{path('inscriseance_modifier', {'id':seance.id})}}">Modifier</a>
+<a class="btn btn-danger" href="{{path('inscriseance_supprimer', {'id':seance.id})}}">Supprimer</a>
+</tr>
+</td>
+{% else %}
+<tr>
+<td colspan="7">Aucun Seance</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<script>
+$(".btn-danger").click(function(){
+return confirm("Supprimer ?");
+})
+$(".btn-info").click(function(){
+return confirm("Modifier ?");
+})
+</script>
+{% endblock %}

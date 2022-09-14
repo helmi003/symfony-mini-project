@@ -1,0 +1,47 @@
+{% extends 'inscri-layout.html.twig' %}
+{% block body %}
+<h1>Gestion des clubs de planche à voile : Admin</h1>
+<h2>Liste des Moniteur | <small><a href="inscrimoniteur/ajouter">Ajouter</a></small></h2>
+{% for msg in app.flashes('notice') %}
+<div class="alert alert-success">
+{{msg}}
+</div>
+{% endfor %}
+{{form_start(f)}}
+{{form_widget(f)}}
+{{form_end(f)}}
+<table class="table table-hover table-striped" border="1">
+<thead>
+<tr>
+<th>Id Moniteur</th>
+<th>Prénom & Nom</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+{% for moniteur in lesMoniteur %}
+<tr>
+<td>{{moniteur.id}}</td>
+<td>{{moniteur.prenom | upper}} {{moniteur.nom}}</td>
+<td>
+<a class="btn btn-primary" href="{{path('inscrimoniteur_voir', {'id':moniteur.id})}}">Voir</a>
+<a class="btn btn-info" href="{{path('inscrimoniteur_modifier', {'id':moniteur.id})}}">Modifier</a>
+<a class="btn btn-danger" href="{{path('inscrimoniteur_supprimer', {'id':moniteur.id})}}">Supprimer</a>
+</tr>
+</td>
+{% else %}
+<tr>
+<td colspan="3">Aucun Moniteur</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<script>
+$(".btn-danger").click(function(){
+return confirm("Supprimer ?");
+})
+$(".btn-info").click(function(){
+return confirm("Modifier ?");
+})
+</script>
+{% endblock %}

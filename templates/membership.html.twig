@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<meta charset="utf-8">
+<title>
+{% block title %}
+index
+{% endblock %}
+</title>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css ">
+</head>
+<body>
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="clubs">clubs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="membership">Member Ship</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about">About</a>
+      </li>
+      <li class="nav-item">
+        {% if app.user %}
+          <a class="nav-link" href="account/{{ app.user.id }}">Acount</a>
+        {% else %}
+          <a class="nav-link" href="login">Acount</a>
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+</nav>
+<table class="table table-hover table-striped" border="1">
+<thead>
+<tr>
+<th>Id Moniteur</th>
+<th>Date</th>
+<th>Heure</th>
+<th>NbHeures</th>
+</tr>
+</thead>
+<tbody>
+{% for seance in lesSeances %}
+<tr>
+<td>{{seance.idm}}</td>
+<td>{{seance.date | date('d/m/Y')}}</td>
+<td>{{seance.heure}}</td>
+<td>{{seance.nbheure}}</td>
+</tr>
+{% else %}
+<tr>
+<td colspan="4">Aucun Seance</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}
+</div>
+</body>
+</html>
